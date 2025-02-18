@@ -22,3 +22,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "appheroes"
 include(":app")
+include(":core")
