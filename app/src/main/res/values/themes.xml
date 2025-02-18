@@ -14,7 +14,7 @@
         <!-- Customize your theme here. -->
     </style>
 
-    <style name="Theme.Appheroes" parent="Base.Theme.Appheroes" />
+<!--    <style name="Theme.Appheroes" parent="Base.Theme.Appheroes" />-->
 </resources>
 
 
