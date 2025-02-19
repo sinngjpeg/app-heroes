@@ -1,3 +1,5 @@
+import java.util.Properties
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
@@ -8,6 +10,15 @@ plugins {
     id("kotlin-kapt")
     id("kotlin-parcelize")
 }
+
+val apikeyPropertiesFile = rootProject.file("apikey.properties")
+
+val apikeyProperties = Properties().apply {
+    if (apikeyPropertiesFile.exists()) {
+        apikeyPropertiesFile.inputStream().use { load(it) }
+    }
+}
+
 
 android {
     namespace = "br.com.jpegsinng.appheroes"
@@ -21,6 +32,10 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        buildConfigField("String", "PUBLIC_KEY", apikeyProperties.getProperty("PUBLIC_KEY"))
+        buildConfigField("String", "PRIVATE_KEY", apikeyProperties.getProperty("PRIVATE_KEY"))
+        buildConfigField("String", "BASE_URL", "https://gateway.marvel.com/v1/public/")
     }
 
     buildTypes {
@@ -44,8 +59,8 @@ android {
 
     buildFeatures {
         viewBinding = true
+        buildConfig = true
     }
-
 }
 
 detekt {
@@ -95,7 +110,7 @@ dependencies {
 
     // Glide
     implementation(libs.glide.core)
-    kapt(libs.glide.compiler)
+    ksp(libs.glide.compiler)
 
     // Hilt
     implementation(libs.hilt.android)
