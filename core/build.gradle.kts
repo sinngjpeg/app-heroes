@@ -15,12 +15,10 @@ kotlin {
 dependencies {
 
     // Retrofit
-    implementation(libs.retrofit.core)
-    implementation(libs.retrofit.gson)
+    api(libs.retrofit.core)
+    api(libs.retrofit.gson)
 
-    //
-
-    //
-
-    //
+    // OkHttp
+    api(libs.okhttp)
+    api(libs.logging.interceptor)
 }
