@@ -12,8 +12,9 @@ class CharactersPagingSource(
     private val query: String
 ) : PagingSource<Int, Character>() {
 
+    @Suppress("TooGenericExceptionCaught")
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, Character> {
-       return try {
+        return try {
             val offset = params.key ?: 0
             val queries = hashMapOf("offset" to offset.toString())
             if (query.isNotEmpty()) {
@@ -29,7 +30,9 @@ class CharactersPagingSource(
                 prevKey = null,
                 nextKey = if (responseOffset < totalCharacters) {
                     responseOffset + LIMIT
-                } else null
+                } else {
+                    null
+                }
             )
         } catch (exception: Exception) {
             LoadResult.Error(exception)
@@ -37,14 +40,13 @@ class CharactersPagingSource(
     }
 
     override fun getRefreshKey(state: PagingState<Int, Character>): Int? {
-       return state.anchorPosition?.let { anchorPosition ->
-           val anchorPage = state.closestPageToPosition(anchorPosition)
-           anchorPage?.prevKey?.plus(LIMIT) ?: anchorPage?.nextKey?.minus(LIMIT)
-       }
+        return state.anchorPosition?.let { anchorPosition ->
+            val anchorPage = state.closestPageToPosition(anchorPosition)
+            anchorPage?.prevKey?.plus(LIMIT) ?: anchorPage?.nextKey?.minus(LIMIT)
+        }
     }
 
     companion object {
         private const val LIMIT = 20
     }
 }
-

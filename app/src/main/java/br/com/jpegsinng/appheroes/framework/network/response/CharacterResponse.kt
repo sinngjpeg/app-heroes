@@ -3,7 +3,7 @@ package br.com.jpegsinng.appheroes.framework.network.response
 import br.com.jpegsinng.core.model.Character
 
 data class CharacterResponse(
-    val id: String,
+//    val id: String,
     val name: String,
     val thumbnailResponse: ThumbnailResponse
 )

@@ -1,17 +1,19 @@
 package br.com.jpegsinng.appheroes.presentation.characters
 
 import android.view.ViewGroup
+import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
-import androidx.recyclerview.widget.ListAdapter
 import br.com.jpegsinng.core.model.Character
 
-class CharactersAdapter : ListAdapter<Character, CharactersViewHolder>(diffUtil) {
+class CharactersAdapter : PagingDataAdapter<Character, CharactersViewHolder>(diffUtil) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CharactersViewHolder {
         return CharactersViewHolder.create(parent)
     }
 
     override fun onBindViewHolder(holder: CharactersViewHolder, position: Int) {
-        holder.bind(getItem(position))
+        getItem(position)?.let {
+            holder.bind(it)
+        }
     }
 
     companion object {

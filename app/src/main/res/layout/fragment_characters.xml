@@ -8,8 +8,8 @@
     tools:context=".presentation.characters.CharactersFragment">
 
     <include
-        android:id="@+id/include_view_charactes_loading_state"
-        layout="@layout/include_view_character_loading_state" />
+        android:id="@+id/include_view_characters_loading_state"
+        layout="@layout/include_view_characters_loading_state" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_characters"
