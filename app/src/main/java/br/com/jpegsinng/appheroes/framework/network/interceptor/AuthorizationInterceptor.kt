@@ -1,4 +1,4 @@
-package br.com.jpegsinng.core.data.network.response.interceptor
+package br.com.jpegsinng.appheroes.framework.network.interceptor
 
 import okhttp3.Interceptor
 import okhttp3.Response

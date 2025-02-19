@@ -1,6 +1,6 @@
-package br.com.jpegsinng.appheroes
+package br.com.jpegsinng.appheroes.framework.network
 
-import br.com.jpegsinng.core.data.network.response.DataWrapperResponse
+import br.com.jpegsinng.appheroes.framework.network.response.DataWrapperResponse
 import retrofit2.http.GET
 import retrofit2.http.QueryMap
 

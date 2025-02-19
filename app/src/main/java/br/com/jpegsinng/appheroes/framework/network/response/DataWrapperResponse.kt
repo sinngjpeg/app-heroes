@@ -1,4 +1,4 @@
-package br.com.jpegsinng.core.data.network.response
+package br.com.jpegsinng.appheroes.framework.network.response
 
 data class DataWrapperResponse(
     val copyright: String,

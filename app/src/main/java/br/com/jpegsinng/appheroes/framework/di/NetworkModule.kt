@@ -1,7 +1,7 @@
 package br.com.jpegsinng.appheroes.framework.di
 
 import br.com.jpegsinng.appheroes.BuildConfig
-import br.com.jpegsinng.core.data.network.response.interceptor.AuthorizationInterceptor
+import br.com.jpegsinng.appheroes.framework.network.interceptor.AuthorizationInterceptor
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

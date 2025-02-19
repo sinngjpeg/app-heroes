@@ -1,3 +1,4 @@
+import org.apache.tools.ant.util.JavaEnvUtils.VERSION_11
 import java.util.Properties
 
 plugins {
@@ -31,11 +32,16 @@ android {
         versionCode = 1
         versionName = "1.0"
 
+        vectorDrawables {
+            useSupportLibrary = true
+        }
+
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
         buildConfigField("String", "PUBLIC_KEY", apikeyProperties.getProperty("PUBLIC_KEY"))
         buildConfigField("String", "PRIVATE_KEY", apikeyProperties.getProperty("PRIVATE_KEY"))
-        buildConfigField("String", "BASE_URL", "https://gateway.marvel.com/v1/public/")
+        buildConfigField("String", "BASE_URL", "\"https://gateway.marvel.com/v1/public/\"")
+
     }
 
     buildTypes {
@@ -49,17 +55,25 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
 
     kotlinOptions {
-        jvmTarget = "11"
+        jvmTarget = "17"
     }
 
     buildFeatures {
         viewBinding = true
         buildConfig = true
+    }
+
+    packagingOptions {
+        resources {
+            excludes += "/META-INF/{AL2.0,LGPL2.1}"
+            merges += "META-INF/LICENSE.md"
+            merges += "META-INF/LICENSE-notice.md"
+        }
     }
 }
 
