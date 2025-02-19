@@ -1,6 +1,7 @@
 package br.com.jpegsinng.appheroes.framework.di
 
 import br.com.jpegsinng.appheroes.BuildConfig
+import br.com.jpegsinng.appheroes.framework.network.MarvelApi
 import br.com.jpegsinng.appheroes.framework.network.interceptor.AuthorizationInterceptor
 import dagger.Module
 import dagger.Provides
@@ -64,11 +65,12 @@ object NetworkModule {
     fun provideRetrofit(
         okHttpClient: OkHttpClient,
         converterFactory: GsonConverterFactory
-    ): Retrofit {
+    ): MarvelApi {
         return Retrofit.Builder()
             .baseUrl(BuildConfig.BASE_URL)
             .client(okHttpClient)
             .addConverterFactory(converterFactory)
             .build()
+            .create(MarvelApi::class.java)
     }
 }
