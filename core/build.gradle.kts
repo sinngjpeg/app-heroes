@@ -13,12 +13,20 @@ kotlin {
 }
 
 dependencies {
+    // Coroutines
+    api(libs.coroutines.core)
 
-    // Retrofit
-    api(libs.retrofit.core)
-    api(libs.retrofit.gson)
+    // Javax
+    api(libs.javax.inject)
 
     // OkHttp
     api(libs.okhttp)
     api(libs.logging.interceptor)
+
+    // Paging
+    api(libs.paging.common)
+
+    // Retrofit
+    api(libs.retrofit.core)
+    api(libs.retrofit.gson)
 }

@@ -105,7 +105,6 @@ dependencies {
     implementation(libs.recyclerview)
 
     // Coroutines
-    implementation(libs.coroutines.core)
     implementation(libs.coroutines.android)
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
@@ -130,9 +129,6 @@ dependencies {
     implementation(libs.hilt.android)
     kapt(libs.hilt.compiler)
 
-    //Javax
-    implementation(libs.javax.inject)
-
     //  Lifecycle
     implementation(libs.lifecycle.runtime.ktx)
     implementation(libs.lifecycle.viewmodel.ktx)
@@ -148,7 +144,6 @@ dependencies {
 
     //Paging
     implementation(libs.paging.runtime)
-    implementation(libs.paging.common)
 
     //Picasso
     implementation(libs.picasso)
